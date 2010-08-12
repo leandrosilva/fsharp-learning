@@ -26,9 +26,11 @@ let generateReport (name : string) =
   | :? FileNotFoundException as ex
       -> Console.WriteLine("error => {0}", ex.Message)
 
-try
-  let name = Environment.GetCommandLineArgs().GetValue(1).ToString()
-  generateReport(name)
-with
-| :? IndexOutOfRangeException as ex
-    -> Console.WriteLine("You must pass file name as argument. Try 'generateReport.exe contact.csv'.")
+[<EntryPoint>] 
+let main (args : string[]) = 
+  try
+    generateReport(args.[0])
+  with
+  | :? IndexOutOfRangeException as ex
+      -> Console.WriteLine("You must pass file name as argument. Try 'generateReport.exe contact.csv'.")
+  0
