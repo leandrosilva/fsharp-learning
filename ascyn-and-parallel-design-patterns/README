@@ -1,0 +1,10 @@
+A lote of samples strongly based on Async and Parallel Design Patterns in F# tutorial.
+
+Part 1: Parallelizing CPU and I/O Computations
+http://blogs.msdn.com/b/dsyme/archive/2010/01/09/async-and-parallel-design-patterns-in-f-parallelizing-cpu-and-i-o-computations.aspx
+
+Part 2: Reporting Progress with Events (plus Twitter Sample)
+http://blogs.msdn.com/b/dsyme/archive/2010/01/10/async-and-parallel-design-patterns-in-f-reporting-progress-with-events-plus-twitter-sample.aspx
+
+Part 3: Agents
+http://blogs.msdn.com/b/dsyme/archive/2010/02/15/async-and-parallel-design-patterns-in-f-part-3-agents.aspx
