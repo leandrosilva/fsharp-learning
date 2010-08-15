@@ -5,14 +5,14 @@ open System.IO
 open Microsoft.FSharp.Control.WebExtensions
 
 (*
-(1) "async { ... }" is used to write tasks which include some asynchronous I/O.
+1. "async { ... }" is used to write tasks which include some asynchronous I/O.
 
-(2) These are composed in parallel using the fork-join combinator Async.Parallel
+2. These are composed in parallel using the fork-join combinator Async.Parallel
 
-(3) In this case, the composition is executed using Async.RunSynchronously, which
+3. In this case, the composition is executed using Async.RunSynchronously, which
     synchronously waits for the overall result
 
-(4) Using let! (or its resource-disposing equivalent use!) is one basic way of composing
+4. Using let! (or its resource-disposing equivalent use!) is one basic way of composing
     asyncs. A line such as
 
         let! resp = req.AsyncGetResponse()
