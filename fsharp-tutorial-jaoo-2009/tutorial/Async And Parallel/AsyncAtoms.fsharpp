@@ -1,0 +1,60 @@
+"General"
+{
+"ProjectIdGuid" = "{DA9F4BC6-9D1F-4490-AFEA-93C1695B2051}"
+}
+"Configurations"
+{
+    "Debug|Win32"
+    {
+    "ProjectType" = "EXE"
+    "OptLevel" = "Off"
+    "StrongNamingLevel" = "None"
+    "OutputPath" = ""
+    "SearchPath" = "-r PeriodicTable.dll"
+    "StrongNameFile" = ""
+    "OutputBase" = ""
+    "CustomCommandLine" = ""
+    "CustomCompiler" = ""
+    "DebugCheck" = "TRUE"
+    "CustomCompilationCheck" = "FALSE"
+    "DebugStartMode" = "0"
+    "StartApp" = ""
+    "StartAppPath" = ""
+    "CustomStartupArguments" = ""
+    }
+    "Release|Win32"
+    {
+    "ProjectType" = "EXE"
+    "OptLevel" = "3"
+    "StrongNamingLevel" = "None"
+    "OutputPath" = ""
+    "SearchPath" = ""
+    "StrongNameFile" = ""
+    "OutputBase" = ""
+    "CustomCommandLine" = ""
+    "CustomCompiler" = ""
+    "DebugCheck" = "FALSE"
+    "CustomCompilationCheck" = "FALSE"
+    "DebugStartMode" = "0"
+    "StartApp" = ""
+    "StartAppPath" = ""
+    "CustomStartupArguments" = ""
+    }
+}
+"Files"
+{
+    "show.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+    "periodictable.fs"
+    {
+    "ProjRelPath" = "T"
+    }
+}
+"ProjStartupServices"
+{
+}
+"Globals"
+{
+}

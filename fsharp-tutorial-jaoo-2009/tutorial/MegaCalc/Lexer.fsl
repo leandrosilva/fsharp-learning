@@ -1,0 +1,29 @@
+{
+module Lexer
+open System
+open Parser
+open Microsoft.FSharp.Text.Lexing
+
+}
+
+// These are some regular expression definitions
+let digit = ['0'-'9']
+let whitespace = [' ' '\t' ]
+let newline = ('\n' | '\r' '\n')
+
+rule tokenize = parse
+| whitespace	{ tokenize lexbuf }
+| newline       { tokenize lexbuf }
+// Operators
+| "+"			{ PLUS }
+| "-"			{ MINUS }
+| "*"			{ ASTER }
+| "/"			{ SLASH }
+// Misc
+| "("			{ LPAREN }
+| ")"			{ RPAREN }
+// Numberic constants
+| ['-']?digit+									{ INT32 (Int32.Parse(LexBuffer<_>.LexemeString lexbuf)) }
+| ['-']?digit+('.'digit+)?(['e''E']digit+)?		{ FLOAT (Double.Parse(LexBuffer<_>.LexemeString lexbuf)) }
+// EOF
+| eof   { EOF }
