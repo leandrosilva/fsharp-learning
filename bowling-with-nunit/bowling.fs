@@ -6,7 +6,7 @@ open NUnit.Framework
 let rec score_bowls bowls =
     let rec score_bowls' frame l  =
         match l with
-        | _ when frame = 10 -> (List.fold_right (fun x y -> x + y) l 0)
+        | _ when frame = 10 -> (List.foldBack (fun x y -> x + y) l 0)
         | [] -> 0
         | [f] -> f
         | [f;s] -> f + s
