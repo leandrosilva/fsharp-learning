@@ -1,0 +1,43 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSSyncServer", "FSSyncServer\FSSyncServer.fsproj", "{F685D7FD-0358-4D9A-9EB9-C051960B0F13}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "FSAsyncServer", "FSAsyncServer\FSAsyncServer.fsproj", "{DBA5B95E-071C-4D1C-B433-6CE834BCB51C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{251B9FF1-0F94-43D3-8AB3-CFC165ADE072}"
+	ProjectSection(SolutionItems) = preProject
+		TestClient.fsx = TestClient.fsx
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSSyncServer", "CSSyncServer\CSSyncServer.csproj", "{FB5A5F0D-EFA8-4856-A152-4DAE02D987AB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSAsyncServer", "CSAsyncServer\CSAsyncServer.csproj", "{F2C82067-2E42-4B58-A2D3-0B9B07B97340}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F685D7FD-0358-4D9A-9EB9-C051960B0F13}.Debug|x86.ActiveCfg = Debug|x86
+		{F685D7FD-0358-4D9A-9EB9-C051960B0F13}.Debug|x86.Build.0 = Debug|x86
+		{F685D7FD-0358-4D9A-9EB9-C051960B0F13}.Release|x86.ActiveCfg = Release|x86
+		{F685D7FD-0358-4D9A-9EB9-C051960B0F13}.Release|x86.Build.0 = Release|x86
+		{DBA5B95E-071C-4D1C-B433-6CE834BCB51C}.Debug|x86.ActiveCfg = Debug|x86
+		{DBA5B95E-071C-4D1C-B433-6CE834BCB51C}.Debug|x86.Build.0 = Debug|x86
+		{DBA5B95E-071C-4D1C-B433-6CE834BCB51C}.Release|x86.ActiveCfg = Release|x86
+		{DBA5B95E-071C-4D1C-B433-6CE834BCB51C}.Release|x86.Build.0 = Release|x86
+		{FB5A5F0D-EFA8-4856-A152-4DAE02D987AB}.Debug|x86.ActiveCfg = Debug|x86
+		{FB5A5F0D-EFA8-4856-A152-4DAE02D987AB}.Debug|x86.Build.0 = Debug|x86
+		{FB5A5F0D-EFA8-4856-A152-4DAE02D987AB}.Release|x86.ActiveCfg = Release|x86
+		{FB5A5F0D-EFA8-4856-A152-4DAE02D987AB}.Release|x86.Build.0 = Release|x86
+		{F2C82067-2E42-4B58-A2D3-0B9B07B97340}.Debug|x86.ActiveCfg = Debug|x86
+		{F2C82067-2E42-4B58-A2D3-0B9B07B97340}.Debug|x86.Build.0 = Debug|x86
+		{F2C82067-2E42-4B58-A2D3-0B9B07B97340}.Release|x86.ActiveCfg = Release|x86
+		{F2C82067-2E42-4B58-A2D3-0B9B07B97340}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
