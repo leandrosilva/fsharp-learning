@@ -18,18 +18,24 @@ let asyncServiceClient (client: TcpClient) = async {
     while true do
         do! asyncWriteStockQuote(stream) }
 
-let mutable anyErrors = false
 let mutable requestCount = 0
+let mutable anyErrors = false
+    
 let AsyncMain() =
-    let socket = new TcpListener(IPAddress.Loopback, 10003)
-    socket.Start()
-    let t = new Thread(ThreadStart(fun _ -> 
+    let serverSocket = new TcpListener(IPAddress.Loopback, 10003)
+    serverSocket.Start()
+
+    let listenerThread = new Thread(ThreadStart(fun _ -> 
         while true do
-            let client = socket.AcceptTcpClient()
+            printfn "while true..."
+            let client = serverSocket.AcceptTcpClient()
+            printfn "client %O accepted" client 
+            
             requestCount <- requestCount + 1
-            if requestCount % 100 = 0 then 
+            if requestCount % 100 = 0 then
                 Console.WriteLine("{0} accepted...", requestCount)
-            Async.Start (async { 
+                
+            Async.Start(async { 
                 try 
                     use _holder = client
                     do! asyncServiceClient client 
@@ -38,11 +44,13 @@ let AsyncMain() =
                         anyErrors <- true
                         Console.WriteLine("server ERROR")
                     raise e
-                } )
+                })
     ), IsBackground = true)
-    t.Start()
+    listenerThread.Start()
+
     while true do
         do Thread.Sleep 1000
+
         let count = Interlocked.Exchange(&numWritten, 0)
         Console.WriteLine("QUOTES PER SECOND: {0}", count)
 

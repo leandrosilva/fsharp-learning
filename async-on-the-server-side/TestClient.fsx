@@ -1,4 +1,5 @@
 ﻿#r "System.Net"
+open System
 open System.Net
 open System.Net.Sockets
 
@@ -26,10 +27,12 @@ let myLock = new obj()
 let mutable anyErrors = false
 
 let clientAsync clientIndex = 
-    async { 
-        do! Async.Sleep(clientIndex*5)
+    async {
+        do! Async.Sleep(clientIndex+5)
+
         if clientIndex % 100 = 0 then
-            lock myLock (fun() -> printfn "%d clients..." clientIndex)       
+            lock myLock (fun() -> printfn "%d clients..." clientIndex)
+           
         try 
             do! clientRequestQuoteStream (clientIndex, IPAddress.Loopback, 10003)
         with e -> 
@@ -44,3 +47,8 @@ let clientAsync clientIndex =
 Async.Parallel [ for i in 1 .. 1000 -> clientAsync i ] 
     |> Async.Ignore 
     |> Async.Start 
+
+printfn "\n(type any key to terminate)\n"
+let keyPressed = Console.ReadKey(true)
+
+(0)
