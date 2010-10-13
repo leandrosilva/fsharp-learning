@@ -7,7 +7,7 @@ let quoteSize = 512
 
 type System.Net.Sockets.TcpClient with
     member client.AsyncConnect(server, port) = 
-        Async.FromBeginEnd(server, port,(client.BeginConnect : IPAddress * int * _ * _ -> _), client.EndConnect)
+        Async.FromBeginEnd(server, port, (client.BeginConnect : IPAddress * int * _ * _ -> _), client.EndConnect)
 
 let clientRequestQuoteStream (clientIndex, server, port:int) =
     let n = ref 120  // quit after 2 minutes, in case something goes wrong and demo machine freezes under load
@@ -24,7 +24,7 @@ let clientRequestQuoteStream (clientIndex, server, port:int) =
     }
 
 let myLock = new obj()
-let mutable anyErrors = false
+// let mutable anyErrors = false
 
 let clientAsync clientIndex = 
     async {
@@ -34,21 +34,18 @@ let clientAsync clientIndex =
             lock myLock (fun() -> printfn "%d clients..." clientIndex)
            
         try 
-            do! clientRequestQuoteStream (clientIndex, IPAddress.Loopback, 10003)
+            do! clientRequestQuoteStream(clientIndex, IPAddress.Loopback, 10003)
         with e -> 
-            if not anyErrors then
-                anyErrors <- true
-                printfn "CLIENT ERROR: %A" e
-            else
-                printf "err..."
-            raise e
+            printfn "(client %i) ERROR: %s" clientIndex e.Message
     }
    
-Async.Parallel [ for i in 1 .. 1000 -> clientAsync i ] 
-    |> Async.Ignore 
-    |> Async.Start 
+let main amount =
+    Async.Parallel [ for i in 1 .. amount -> clientAsync i ] 
+        |> Async.Ignore 
+        |> Async.Start 
 
-printfn "\n(type any key to terminate)\n"
-let keyPressed = Console.ReadKey(true)
+    printfn "\n(type any key to terminate)\n"
+    Console.ReadKey(true)
 
-(0)
+Console.WriteLine("Launching {0} parallel clients", fsi.CommandLineArgs.[1])
+main((int)fsi.CommandLineArgs.[1])
