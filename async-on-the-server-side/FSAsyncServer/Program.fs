@@ -27,7 +27,8 @@ let AsyncMain() =
 
     let listenerThread = new Thread(ThreadStart(fun _ -> 
         while true do
-            printfn "while true..."
+            printfn "(connected clients: %i) waiting for more connections..." requestCount
+
             let client = serverSocket.AcceptTcpClient()
             printfn "client %O accepted" client 
             
