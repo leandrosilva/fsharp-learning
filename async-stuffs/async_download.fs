@@ -1,5 +1,11 @@
 #light
 
+(*
+  Sample code from the article "Asynchronous C# and F# (I.): Simultaneous introduction", avaliable at:
+    
+  http://tomasp.net/blog/csharp-fsharp-async-intro.aspx
+*)
+
 open System
 open System.Net
 open System.IO
